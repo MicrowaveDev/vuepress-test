@@ -1,16 +1,18 @@
 const {createBuildApp, createPage} = require('@vuepress/core');
 const { path } = require('@vuepress/utils');
+const { rmDir } = require('./helpers');
 const fs = require('fs');
 
 (async () => {
-    const indexHtmlPath = path.resolve(__dirname, './.vuepress/dist/index.html');
+    const vuepressPath = path.resolve(__dirname, './.vuepress');
+    const indexHtmlPath = path.resolve(vuepressPath, 'dist/index.html');
 
     await generate('Test 1');
 
     console.log('\n\nincludes 1:', fs.readFileSync(indexHtmlPath, {encoding: 'utf8'}).includes('Test 1'));
 
-    fs.unlinkSync(indexHtmlPath);
-    console.log('\n\nnot exists:', !fs.existsSync(indexHtmlPath))
+    rmDir(vuepressPath);
+    console.log('\n\nnot exists:', !fs.existsSync(vuepressPath))
 
     await generate('Test 2');
 
