@@ -1,0 +1,1 @@
+import{r as t,o,c as s,a,u as n}from"./app.b74d3e26.js";import{_ as c}from"./plugin-vue_export-helper.21dcd24c.js";const r=n(),_={components:{},computed:{page(){return r}},mounted(){}},p={id:"base-page"};function d(m,u,i,f,l,g){const e=t("Content");return o(),s("div",p,[a(e)])}var $=c(_,[["render",d]]);export{$ as default};
